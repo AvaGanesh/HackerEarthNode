@@ -1,0 +1,13 @@
+const express = require("express");
+const app = express();
+const path = require('path');
+const port = 8011 | process.env.PORT;
+
+app.use(express.static(path.join(__dirname,'./Assignment')));
+app.get('*',function(req,res) {
+    return res.sendFile(path.join(__dirname+'./Assignment/index.html'));
+});
+
+app.listen(port, () => {
+    console.log(`Hackerearth assignment is running in ${port}`);
+});
